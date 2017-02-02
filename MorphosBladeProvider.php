@@ -13,11 +13,13 @@ class MorphosBladeProvider extends ServiceProvider {
     public function boot()
     {
         Blade::directive('plural', function ($expression) {
-            return "<?php echo morphos\\Russian\\Plurality::pluralize($expression); ?>";
+            $expression = array_reverse(explode(',', $expression));
+            return $expression[1].' <?php echo morphos\\Russian\\Plurality::pluralize('.implode(',', $expression).'); ?>';
         });
 
         Blade::directive('name', function ($expression) {
-            return "<?php echo morphos\\Russian\\nameCase($expression); ?>";
+            $expression = explode(',', $expression);
+            return '<?php echo morphos\\Russian\\nameCase('.$expression[0].','.$expression[2].','.$expression[1].'); ?>';
         });
     }
 
