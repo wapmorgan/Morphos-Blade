@@ -1,0 +1,12 @@
+{
+    "name": "wapmorgan/morphos-blade",
+    "description": "Adds @plural and @name tags to Blade.",
+    "require": {
+        "wapmorgan/morphos": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "morphos\\": ""
+        }
+    }
+}
