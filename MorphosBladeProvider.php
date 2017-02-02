@@ -4,7 +4,7 @@ namespace morphos;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class BladeProvider extends ServiceProvider {
+class MorphosBladeProvider extends ServiceProvider {
     /**
      * Perform post-registration booting of services.
      *
