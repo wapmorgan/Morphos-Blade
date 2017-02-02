@@ -1,6 +1,8 @@
 {
     "name": "wapmorgan/morphos-blade",
     "description": "Adds @plural and @name tags to Blade.",
+    "license": "MIT",
+    "keywords": ["blade", "morphology"],
     "require": {
         "wapmorgan/morphos": "dev-master"
     },
