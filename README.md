@@ -3,17 +3,17 @@
 Adds a @plural and @name tags to Laravel's Blade templating engine for Russian pluralization and declenation.
 
 ```blade
-    <div>
-    @plural(251, 'новость') от @name('Иванов Иван Иванович', 'm', 'genetivus')
-    </div>
+<div>
+@plural(251, 'новость') от @name('Иванов Иван Иванович', 'm', 'genetivus')
+</div>
 ```
 
 Will be compiled in
 
 ```html
-    <div>
-    251 новость от Иванова Ивана Ивановича
-    </div>
+<div>
+251 новость от Иванова Ивана Ивановича
+</div>
 ```
 
 - @plural - Get plural form of word. Just pass count of objects and noun.
@@ -31,7 +31,7 @@ composer require wapmorgan/morphos-blade
 Open up your `app.php` in your `config` folder, and add the following line to
 your `providers` list like:
 
-```
+```php
 'providers' => array(
     ...
     morphos\MorphosBladeProvider::class
