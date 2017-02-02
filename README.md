@@ -1,5 +1,9 @@
 # MorphosBlade
 
+[![Composer package](http://xn--e1adiijbgl.xn--p1acf/badge/wapmorgan/morphos-blade)](https://packagist.org/packages/wapmorgan/morphos-blade)
+[![Latest Stable Version](https://poser.pugx.org/wapmorgan/morphos-blade/version)](https://packagist.org/packages/wapmorgan/morphos-blade)
+[![License](https://poser.pugx.org/wapmorgan/morphos/license-blade)](https://packagist.org/packages/wapmorgan/morphos-blade)
+
 Adds a @plural and @name tags to Laravel's Blade templating engine for Russian pluralization and declenation.
 
 ```blade
@@ -16,8 +20,8 @@ Will be compiled in
 </div>
 ```
 
-- @plural - Get plural form of word. Just pass count of objects and noun.
-- @name - Get any case of fullname. Just pass name, gender (m or w) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
+- **@plural** - Get plural form of word. Just pass count of objects and noun.
+- **@name** - Get any case of fullname. Just pass name, gender (m or w) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
 
 ## Installation
 
