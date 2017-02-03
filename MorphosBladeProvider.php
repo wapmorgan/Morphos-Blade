@@ -17,6 +17,14 @@ class MorphosBladeProvider extends ServiceProvider {
             return $expression[1].' <?php echo morphos\\Russian\\Plurality::pluralize('.implode(',', $expression).'); ?>';
         });
 
+        Blade::directive('numeral', function ($expression) {
+            $expression = explode(',', $expression);
+            if (count($expression) == 1 || in_array(trim($expression[1]), array('\'f\'', '\'m\'', '\'n\'')))
+                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[1]) ? ','.$expression[1] : null).') ?>';
+            else
+                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[2]) ? ','.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
+        });
+
         Blade::directive('name', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 2)
