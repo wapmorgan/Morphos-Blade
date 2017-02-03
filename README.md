@@ -8,7 +8,7 @@ Adds a @plural and @name tags to Laravel's Blade templating engine for Russian p
 
 ```blade
 <div>
-@plural(252, 'новость') от @name('Иванов Иван Иванович', 'm', 'genetivus')
+@plural(252, 'новость') от @name('Иванов Иван Иванович', 'genetivus')
 </div>
 ```
 
@@ -21,7 +21,8 @@ Will be compiled in
 ```
 
 - **@plural** - Get plural form of word. Just pass count of objects and noun.
-- **@name** - Get any case of fullname. Just pass name, gender (m or w) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
+- **@name(name, case)** - Get any case of fullname with gender detection.
+- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
 
 ## Installation
 
