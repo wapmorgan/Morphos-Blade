@@ -2,13 +2,13 @@
 
 [![Composer package](http://xn--e1adiijbgl.xn--p1acf/badge/wapmorgan/morphos-blade)](https://packagist.org/packages/wapmorgan/morphos-blade)
 [![Latest Stable Version](https://poser.pugx.org/wapmorgan/morphos-blade/version)](https://packagist.org/packages/wapmorgan/morphos-blade)
-[![License](https://poser.pugx.org/wapmorgan/morphos/license-blade)](https://packagist.org/packages/wapmorgan/morphos-blade)
+[![License](https://poser.pugx.org/wapmorgan/morphos-blade/license)](https://packagist.org/packages/wapmorgan/morphos-blade)
 
 Adds a @plural and @name tags to Laravel's Blade templating engine for Russian pluralization and declenation.
 
 ```blade
 <div>
-@plural(251, 'новость') от @name('Иванов Иван Иванович', 'm', 'genetivus')
+@plural(252, 'новость') от @name('Иванов Иван Иванович', 'm', 'genetivus')
 </div>
 ```
 
@@ -16,7 +16,7 @@ Will be compiled in
 
 ```html
 <div>
-251 новость от Иванова Ивана Ивановича
+252 новости от Иванова Ивана Ивановича
 </div>
 ```
 
