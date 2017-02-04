@@ -18,17 +18,18 @@ Will be compiled in
 ```html
 <div>
 252 новости от Иванова Ивана Ивановича
-пятьсот шестьдесят пять сообщений и сто двадцать три рубля пятьдесят копеек за Ваше отсутствие.
+пятьсот шестьдесят пять сообщений и 123 рубля 50 копеек за Ваше отсутствие
 </div>
 ```
 
-- **@plural** - Get plural form of word. Just pass count of objects and noun.
+- **@plural(count, noun)** - Get plural form of word. Just pass count of objects and noun.
+- **@money(value, type)** - Get money formatted as text string. Just pass value and type (₽ or $ or €).
 - **@numeral(number)** - Get numeral of a number. Just pass number.
+- **@name(name, case)** - Get any case of fullname with gender detection.
+
 - **@numeral(number, gender)** - Get numeral of a number. Just pass number and gender (m or f or n).
 - **@numeral(number, noun)** - Get numeral with a pluralized noun. Just pass number and noun.
 - **@numeral(number, noun, gender)** - Get numeral with a pluralized noun. Just pass number, noun and gender (m or f or n).
-- **@money(value, type)** - Get money formatted as text string. Just pass value and type (₽ or $ or €).
-- **@name(name, case)** - Get any case of fullname with gender detection.
 - **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
 
 ## Installation

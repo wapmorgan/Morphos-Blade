@@ -37,17 +37,17 @@ class MorphosBladeProvider extends ServiceProvider {
                 case 'рубль':
                 case 'r':
                 case 'rub':
-                    return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_big.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'рубль\', '.$money_big.') ?> <?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_little.', \'f\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'копейка\', '.$money_little.') ?>';
+                    return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'рубль\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'копейка\', '.$money_little.') ?>';
                 case '$':
                 case 'доллар':
                 case 'u':
                 case 'usd':
-                    return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_big.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'доллар\', '.$money_big.') ?> <?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_little.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
+                    return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'доллар\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
                 case '€':
                 case 'евро':
                 case 'e':
                 case 'euro':
-                    return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_big.', \'n\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'евро\', '.$money_big.') ?> <?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_little.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
+                    return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'евро\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
                 default:
                     return '<?php echo ('.$expression[0].').\' \'.('.$expression[1].') ?>';
             }
