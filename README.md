@@ -41,7 +41,7 @@ Most popular directives:
     
 - **@name(name, case)** - Get any case of fullname with gender detection.
     ```blade
-    @name('Сергей Аркадьевич', 'dativus')
+    @name('Коленко Сергей Аркадьевич', 'dativus')
     ```
 
 Additional directives:
