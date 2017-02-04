@@ -42,7 +42,7 @@ class MorphosBladeProvider extends ServiceProvider {
                 case 'доллар':
                 case 'u':
                 case 'usd':
-                    return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_big.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'доллар\', '.$money_big.') ?> <?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_little.', \'n\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
+                    return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_big.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'доллар\', '.$money_big.') ?> <?php echo morphos\\Russian\\CardinalNumeral::generate('.$money_little.', \'m\') ?> <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
                 case '€':
                 case 'евро':
                 case 'e':
