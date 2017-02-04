@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class MorphosBladeProvider extends ServiceProvider {
+
+    protected $currencies = array();
+
     /**
      * Perform post-registration booting of services.
      *
@@ -28,16 +31,22 @@ class MorphosBladeProvider extends ServiceProvider {
         Blade::directive('money', function ($expression) {
             $expression = explode(',', $expression);
             $money = (float)trim($expression[0], '\'');
-            $money_type = mb_strtolower(trim($expression[1], '\' '));
+            $currency = mb_strtolower(trim($expression[1], '\' '));
             $money_big = floor($money);
             $money_little = floor($money * 100 % 100);
-            switch ($money_type) {
+            switch ($currency) {
                 case '₽':
                 case 'р':
                 case 'рубль':
                 case 'r':
                 case 'rub':
                     return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'рубль\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'копейка\', '.$money_little.') ?>';
+                case '₴':
+                case 'г':
+                case 'гривна':
+                case 'uah':
+                    return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'гривна\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'копейка\', '.$money_little.') ?>';
+
                 case '$':
                 case 'доллар':
                 case 'u':
@@ -46,8 +55,14 @@ class MorphosBladeProvider extends ServiceProvider {
                 case '€':
                 case 'евро':
                 case 'e':
+                case 'eur':
                 case 'euro':
                     return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'евро\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
+
+                case '£':
+                case 'фунт':
+                case 'gbp':
+                    return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'фунт\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'пенни\', '.$money_little.') ?>';
                 default:
                     return '<?php echo ('.$expression[0].').\' \'.('.$expression[1].') ?>';
             }
