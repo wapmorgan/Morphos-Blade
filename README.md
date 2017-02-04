@@ -39,17 +39,32 @@ Most popular directives:
     @numeral(344)
     ```
     
-- **@name(name, case)** - Get any case of fullname with gender detection.
+- **@name(name, case)** - Get any case of fullname with gender detection. Just pass name and case (genetivus or dativus or accusative or ablativus or praepositionalis)
     ```blade
     @name('Коленко Сергей Аркадьевич', 'dativus')
     ```
 
 Additional directives:
 
-- **@numeral(number, gender)** - Get numeral of a number. Just pass number and gender (m or f or n).
-- **@numeral(number, noun)** - Get numeral with a pluralized noun. Just pass number and noun.
-- **@numeral(number, noun, gender)** - Get numeral with a pluralized noun. Just pass number, noun and gender (m or f or n).
-- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (genetivus, dativus, accusative, ablativus, praepositionalis).
+- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (genetivus, dativus, accusative, ablativus, praepositionalis). Use this directive if middle name is unknown and gender detection can make wrong decision.
+    ```blade
+    @name('Филимонов Игорь', 'm', 'dativus')
+    ```
+
+- **@numeral(number, gender)** - Get numeral of a number. Just pass number and gender (m or f or n) to use correct form of gender-dependent words (один/одно/одна, два/две).
+    ```blade
+    @numeral(121, 'n')
+    ```
+    
+- **@numeral(number, noun)** - Get numeral and a pluralized noun. Just pass number and noun. It's just a shortcut to `@numeral(3) @plural(3, 'поле')`
+    ```blade
+    @numeral(3, 'поле')
+    ```
+    
+- **@numeral(number, noun, gender)** - Get numeral and a pluralized noun. Just pass number, noun and gender (m or f or n) to use correct form of gender-dependent words (один/одно/одна, два/две).
+    ```blade
+    @numeral(101, 'сообщение', 'n)
+    ```
 
 ## Installation
 
