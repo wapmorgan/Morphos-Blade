@@ -23,7 +23,7 @@ Will be compiled in
 ```
 
 - **@plural(count, noun)** - Get plural form of word. Just pass count of objects and noun.
-- **@money(value, type)** - Get money formatted as text string. Just pass value and type (₽ or $ or € or ₴ or £).
+- **@money(value, currency)** - Get money formatted as text string. Just pass value and currency (₽ or $ or € or ₴ or £).
 - **@numeral(number)** - Get numeral of a number. Just pass number.
 - **@name(name, case)** - Get any case of fullname with gender detection.
 

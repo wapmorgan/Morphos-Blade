@@ -13,13 +13,17 @@ class MorphosBladeProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
+        // @plural(count, noun)
         Blade::directive('plural', function ($expression) {
             $expression = array_reverse(explode(',', $expression));
             return $expression[1].' <?php echo morphos\\Russian\\Plurality::pluralize('.implode(',', $expression).'); ?>';
         });
 
+        // @numeral(number)
+        // @numeral(number, gender)
+        // @numeral(number, noun)
+        // @numeral(number, noun, gender)
         Blade::directive('numeral', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 1 || in_array(trim($expression[1]), array('\'f\'', '\'m\'', '\'n\'')))
@@ -28,6 +32,7 @@ class MorphosBladeProvider extends ServiceProvider {
                 return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[2]) ? ','.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
         });
 
+        // @money(value, currency)
         Blade::directive('money', function ($expression) {
             $expression = explode(',', $expression);
             $money = (float)trim($expression[0], '\'');
@@ -41,6 +46,7 @@ class MorphosBladeProvider extends ServiceProvider {
                 case 'r':
                 case 'rub':
                     return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'рубль\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'копейка\', '.$money_little.') ?>';
+
                 case '₴':
                 case 'г':
                 case 'гривна':
@@ -52,6 +58,7 @@ class MorphosBladeProvider extends ServiceProvider {
                 case 'u':
                 case 'usd':
                     return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'доллар\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'цент\', '.$money_little.') ?>';
+
                 case '€':
                 case 'евро':
                 case 'e':
@@ -63,11 +70,14 @@ class MorphosBladeProvider extends ServiceProvider {
                 case 'фунт':
                 case 'gbp':
                     return $money_big.' <?php echo morphos\\Russian\\Plurality::pluralize(\'фунт\', '.$money_big.') ?> '.$money_little.' <?php echo morphos\\Russian\\Plurality::pluralize(\'пенни\', '.$money_little.') ?>';
+
                 default:
                     return '<?php echo ('.$expression[0].').\' \'.('.$expression[1].') ?>';
             }
         });
 
+        // @name(name, case)
+        // @name(name, gender, case)
         Blade::directive('name', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 2)
@@ -77,5 +87,5 @@ class MorphosBladeProvider extends ServiceProvider {
         });
     }
 
-    public function register(){}
+    public function register() {}
 }
