@@ -63,8 +63,8 @@ Additional directives:
     
 - **@numeral(number, noun, gender)** - Get numeral and a pluralized noun. Just pass number, noun and gender (m or f or n) to use correct form of gender-dependent words (один/одно/одна, два/две).
     ```blade
-    @numeral(101, 'сообщение', 'n)
-    ```
+    @numeral(101, 'сообщение', 'n')
+    ```
 
 ## Installation
 
