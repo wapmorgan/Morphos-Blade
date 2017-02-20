@@ -4,7 +4,7 @@
     "license": "MIT",
     "keywords": ["blade", "morphology"],
     "require": {
-        "wapmorgan/morphos": "^2.2.7"
+        "wapmorgan/morphos": "^2.3.0"
     },
     "autoload": {
         "psr-4": {
