@@ -8,7 +8,7 @@ Adds a @plural, @name, @numeral and @money tags to Laravel's Blade templating en
 
 ```blade
 <div>
-@plural(252, 'новость') от @name('Иванов Иван Иванович', 'genetivus')
+@plural(252, 'новость') от @name('Иванов Иван Иванович', 'родительный')
 @numeral(565, 'сообщение', 'n') и @money(123.50, '₽') за Ваше отсутствие.
 </div>
 ```
@@ -39,14 +39,14 @@ Most popular directives:
     @numeral(344)
     ```
     
-- **@name(name, case)** - Get any case of fullname with gender detection. Just pass name and case (genetivus or dativus or accusative or ablativus or praepositionalis)
+- **@name(name, case)** - Get any case of fullname with gender detection. Just pass name and case (именительный, родительный, дательный, винительный, творительный, предложный)
     ```blade
     @name('Коленко Сергей Аркадьевич', 'dativus')
     ```
 
 Additional directives:
 
-- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (genetivus, dativus, accusative, ablativus, praepositionalis). Use this directive if middle name is unknown and gender detection can make wrong decision.
+- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (именительный, родительный, дательный, винительный, творительный, предложный). Use this directive if middle name is unknown and gender detection can make wrong decision.
     ```blade
     @name('Филимонов Игорь', 'm', 'dativus')
     ```
