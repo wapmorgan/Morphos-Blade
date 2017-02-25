@@ -32,6 +32,16 @@ class MorphosBladeProvider extends ServiceProvider {
                 return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[2]) ? ','.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
         });
 
+        // @ordinal(number)
+        // @ordinal(number, gender)
+        Blade::directive('ordinal', function ($expression) {
+            $expression = explode(',', $expression);
+            if (count($expression) == 2)
+                return '<?php echo morphos\\Russian\\OrdinalNumeral::generate('.$expression[0].', '.$expression[1].') ?>';
+            else
+                return '<?php echo morphos\\Russian\\OrdinalNumeral::generate('.$expression[0].') ?>';
+        });
+
         // @money(value, currency)
         Blade::directive('money', function ($expression) {
             $expression = explode(',', $expression);
