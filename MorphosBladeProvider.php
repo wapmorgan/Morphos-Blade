@@ -99,9 +99,9 @@ class MorphosBladeProvider extends ServiceProvider {
         Blade::directive('name', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 2)
-                return '<?php echo morphos\\Russian\\nameCase('.$expression[0].','.$expression[1].'); ?>';
+                return '<?php echo morphos\\Russian\\name('.$expression[0].','.$expression[1].'); ?>';
             else
-                return '<?php echo morphos\\Russian\\nameCase('.$expression[0].','.$expression[2].','.$expression[1].'); ?>';
+                return '<?php echo morphos\\Russian\\name('.$expression[0].','.$expression[2].','.$expression[1].'); ?>';
         });
     }
 
