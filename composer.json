@@ -1,6 +1,6 @@
 {
     "name": "wapmorgan/morphos-blade",
-    "description": "Adds @plural, @name, @numeral, @ordinal and @money tags to Blade.",
+    "description": "Adds @plural, @name, @numeral, @ordinal and @money tags to Blade for Russian pluralization and declenation.",
     "license": "MIT",
     "keywords": ["blade", "morphology"],
     "require": {
