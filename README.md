@@ -53,12 +53,12 @@ Most popular directives:
 
 Additional directives:
 
-- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (m or w or null) and case (именительный, родительный, дательный, винительный, творительный, предложный). Use this directive if middle name is unknown and gender detection can make wrong decision.
+- **@name(name, gender, case)** - Get any case of fullname. Just pass name, gender (`f` or `m` or null) and case (именительный, родительный, дательный, винительный, творительный, предложный). Use this directive if middle name is unknown and gender detection can make wrong decision.
     ```blade
     @name('Филимонов Игорь', 'm', 'dativus')
     ```
 
-- **@numeral(number, gender)** - Get numeral of a number. Just pass number and gender (m or f or n) to use correct form of gender-dependent words (один/одно/одна, два/две).
+- **@numeral(number, gender)** - Get numeral of a number. Just pass number and gender (`m` or `f` or `n`) to use correct form of gender-dependent words (один/одно/одна, два/две).
     ```blade
     @numeral(121, 'n')
     ```
@@ -68,12 +68,12 @@ Additional directives:
     @numeral(3, 'поле')
     ```
 
-- **@numeral(number, noun, gender)** - Get numeral and a pluralized noun. Just pass number, noun and gender (m or f or n) to use correct form of gender-dependent words (один/одно/одна, два/две).
+- **@numeral(number, noun, gender)** - Get numeral and a pluralized noun. Just pass number, noun and gender (`m` or `f` or `n`) to use correct form of gender-dependent words (один/одно/одна, два/две).
     ```blade
     @numeral(101, 'сообщение', 'n')
     ```
 
-- **@ordinal(number, gender)** - Get ordinal of a number. Just pass number and gender (m or f or n) to use correct form of gender-dependent words (первый/первое/первая, второй/второе/вторая, etc).
+- **@ordinal(number, gender)** - Get ordinal of a number. Just pass number and gender (`m` or `f` or `n`) to use correct form of gender-dependent words (первый/первое/первая, второй/второе/вторая, etc).
     ```blade
     @ordinal(351, 'n')
     ```

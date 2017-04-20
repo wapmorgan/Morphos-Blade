@@ -27,9 +27,9 @@ class MorphosBladeProvider extends ServiceProvider {
         Blade::directive('numeral', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 1 || in_array(trim($expression[1]), array('\'f\'', '\'m\'', '\'n\'')))
-                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[1]) ? ','.$expression[1] : null).') ?>';
+                return '<?php echo morphos\\Russian\\CardinalNumeral::getCase('.$expression[0].', morphos\\Cases::NOMINATIVE'.(isset($expression[1]) ? ' ,'.$expression[1] : null).') ?>';
             else
-                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].(isset($expression[2]) ? ','.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
+                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].', morphos\\Cases::NOMINATIVE'.(isset($expression[2]) ? ' ,'.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
         });
 
         // @ordinal(number)
@@ -37,9 +37,9 @@ class MorphosBladeProvider extends ServiceProvider {
         Blade::directive('ordinal', function ($expression) {
             $expression = explode(',', $expression);
             if (count($expression) == 2)
-                return '<?php echo morphos\\Russian\\OrdinalNumeral::generate('.$expression[0].', '.$expression[1].') ?>';
+                return '<?php echo morphos\\Russian\\OrdinalNumeral::getCase('.$expression[0].', morphos\\Cases::NOMINATIVE, '.$expression[1].') ?>';
             else
-                return '<?php echo morphos\\Russian\\OrdinalNumeral::generate('.$expression[0].') ?>';
+                return '<?php echo morphos\\Russian\\OrdinalNumeral::getCase('.$expression[0].', morphos\\Cases::NOMINATIVE) ?>';
         });
 
         // @money(value, currency)
