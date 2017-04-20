@@ -29,7 +29,7 @@ class MorphosBladeProvider extends ServiceProvider {
             if (count($expression) == 1 || in_array(trim($expression[1]), array('\'f\'', '\'m\'', '\'n\'')))
                 return '<?php echo morphos\\Russian\\CardinalNumeral::getCase('.$expression[0].', morphos\\Cases::NOMINATIVE'.(isset($expression[1]) ? ' ,'.$expression[1] : null).') ?>';
             else
-                return '<?php echo morphos\\Russian\\CardinalNumeral::generate('.$expression[0].', morphos\\Cases::NOMINATIVE'.(isset($expression[2]) ? ' ,'.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
+                return '<?php echo morphos\\Russian\\CardinalNumeral::getCase('.$expression[0].', morphos\\Cases::NOMINATIVE'.(isset($expression[2]) ? ' ,'.$expression[2] : null).') ?> <?php echo morphos\\Russian\\Plurality::pluralize('.$expression[1].','.$expression[0].'); ?>';
         });
 
         // @ordinal(number)
