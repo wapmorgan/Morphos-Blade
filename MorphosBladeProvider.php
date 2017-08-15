@@ -43,7 +43,7 @@ class MorphosBladeProvider extends ServiceProvider {
 
         // @money(value, currency)
         Blade::directive('money', function ($expression) {
-            $expression = explode(',', $expression);
+            $expression = array_reverse(explode(',', $expression));
             return '<?php echo \\morphos\\Russian\\MoneySpeller::spell('.implode(',', $expression).', \\morphos\\Russian\\MoneySpeller::SHORT_FORMAT) ?>';
         });
 
