@@ -16,7 +16,7 @@ class MorphosBladeProvider extends ServiceProvider {
     public function boot() {
         // @plural(count, noun)
         Blade::directive('plural', function ($expression) {
-            return '<?php echo ('.$expression[1].').\' \'.morphos\\Russian\\pluralize('.$expression.'); ?>';
+            return '<?php echo ('.strstr($expression, ',', true).').\' \'.morphos\\Russian\\pluralize('.$expression.'); ?>';
         });
 
         // @numeral(number)
@@ -43,8 +43,7 @@ class MorphosBladeProvider extends ServiceProvider {
 
         // @money(value, currency)
         Blade::directive('money', function ($expression) {
-            $expression = array_reverse(explode(',', $expression));
-            return '<?php echo \\morphos\\Russian\\MoneySpeller::spell('.implode(',', $expression).', \\morphos\\Russian\\MoneySpeller::SHORT_FORMAT) ?>';
+            return '<?php echo \\morphos\\Russian\\MoneySpeller::spell('.$expression.', \\morphos\\Russian\\MoneySpeller::SHORT_FORMAT) ?>';
         });
 
         // @name(name, case)
