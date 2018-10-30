@@ -16,7 +16,7 @@ class MorphosBladeProvider extends ServiceProvider {
     public function boot() {
         // @plural(count, noun)
         Blade::directive('plural', function ($expression) {
-            return '<?php echo \'.morphos\\Russian\\pluralize('.$expression.'); ?>';
+            return '<?php echo morphos\\Russian\\pluralize('.$expression.'); ?>';
         });
 
         // @numeral(number)
